@@ -1,0 +1,16 @@
+<component name="libraryTable">
+  <library name="com.konghq:unirest-objectmapper-jackson:2.2.00" type="repository">
+    <properties maven-id="com.konghq:unirest-objectmapper-jackson:2.2.00">
+      <exclude>
+        <dependency maven-id="com.konghq:unirest-objectmapper-jackson" />
+      </exclude>
+    </properties>
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/core/jackson-databind/2.9.8/jackson-databind-2.9.8.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/core/jackson-annotations/2.9.0/jackson-annotations-2.9.0.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/core/jackson-core/2.9.8/jackson-core-2.9.8.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
