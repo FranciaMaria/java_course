@@ -29,3 +29,6 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### Don't push resources folder
+src/main/resources
