@@ -47,16 +47,6 @@ public class CompanyServiceImpl implements CompanyService, CompanyRepository {
         return this.companyRepository.findByName(name);
     }
 
-    @Override
-    public ResponseBody insert(Company company){
-        if (companyService.exists(company.getId())) {
-            return (ResponseBody) new ResponseEntity<Company>(HttpStatus.CONFLICT);
-        } else {
-            Company inserted = companyService.insertCompany(company);
-            return (ResponseBody) new ResponseEntity<Company>(inserted, HttpStatus.OK);
-        }
-    }
-
     @PostMapping
     public Company insertCompany(Company company) {
         return this.companyRepository.save(company);
@@ -89,7 +79,6 @@ public class CompanyServiceImpl implements CompanyService, CompanyRepository {
 
     @Override
     public List<Company> findByName(String name) {
-
         return this.companyRepository.findByName(name);
     }
 
@@ -143,17 +132,10 @@ public class CompanyServiceImpl implements CompanyService, CompanyRepository {
     }
 
     @Override
-    public ResponseBody update(Company company, Integer companyId){
-        if (companyService.exists(companyId)) {
-            Company updated = this.companyRepository.save(company);
-            return (ResponseBody) new ResponseEntity<Company>(updated, HttpStatus.OK);
-        } else {
-            return (ResponseBody) new ResponseEntity<Company>(HttpStatus.NOT_FOUND);
-        }
-    }
-
-    @Override
     public boolean exists(int id) {
+        if(companyRepository.existsById(id)) {
+            return true;
+        }
         return false;
     }
 

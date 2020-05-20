@@ -43,11 +43,6 @@ public class CompanyServiceRsMoc implements CompanyService {
     }
 
     @Override
-    public ResponseBody insert(Company company) {
-        return null;
-    }
-
-    @Override
     public Optional<Company> findById(Integer companyId) {
         return null;
     }
@@ -62,11 +57,6 @@ public class CompanyServiceRsMoc implements CompanyService {
 
     @Override
     public Company updateCompany(Company company, Integer companyId) {
-        return null;
-    }
-
-    @Override
-    public ResponseBody update(Company company, Integer companyId) {
         return null;
     }
 

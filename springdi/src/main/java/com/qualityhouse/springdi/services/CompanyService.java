@@ -19,8 +19,6 @@ public interface CompanyService {
 
     List<Company> getByName(String name);
 
-    // Company insert(Company company);
-
     Optional<Company> findById(Integer companyId);
 
     Company insertCompany(Company company);
@@ -28,10 +26,6 @@ public interface CompanyService {
     void deleteCompany(Integer companyId);
 
     Company updateCompany(Company company, Integer companyId);
-
-    ResponseBody update(Company company, Integer companyId);
-
-    ResponseBody insert(Company company);
 
     boolean exists(int id);
 }

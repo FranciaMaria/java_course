@@ -54,16 +54,6 @@ public class CompanyController {
         }
     }
 
-//    @ResponseBody
-//    public ResponseBody insert(Company company){
-//        if (companyService.exists(company.getId())) {
-//            return (ResponseBody) new ResponseEntity<Company>(HttpStatus.CONFLICT);
-//        } else {
-//            Company inserted = companyService.insertCompany(company);
-//            return (ResponseBody) new ResponseEntity<Company>(inserted, HttpStatus.OK);
-//        }
-//    }
-
     @DeleteMapping("/{companyId}")
     public void deleteCompany(@PathVariable Integer companyId) {
         Optional<Company> company = companyService.findById(companyId);
@@ -76,20 +66,10 @@ public class CompanyController {
     @PutMapping("/{companyId}")
     public ResponseEntity<Company> updateCompany(@RequestBody Company company, @PathVariable Integer companyId){
         if (companyService.exists(companyId)) {
-            return new ResponseEntity<Company>(HttpStatus.NOT_FOUND);
-        } else {
             Company updated = companyService.updateCompany(company, companyId);
             return new ResponseEntity<Company>(updated, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<Company>(HttpStatus.NOT_FOUND);
         }
     }
-
-//    public ResponseBody update(Company company, Integer companyId){
-//        if (companyService.exists(companyId)) {
-//            return (ResponseBody) new ResponseEntity<Company>(HttpStatus.NOT_FOUND);
-//        } else {
-//            Company updated = companyService.updateCompany(company, companyId);
-//            return (ResponseBody) new ResponseEntity<Company>(updated, HttpStatus.OK);
-//        }
-//    }
-
 }
