@@ -8,7 +8,11 @@ import org.springframework.data.domain.Example;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,6 +25,7 @@ public class CompanyServiceImpl implements CompanyService, CompanyRepository {
     @Autowired
     private CompanyRepository companyRepository;
     private ArrayList arrayList = new ArrayList();
+    private CompanyService companyService;
 
     @Override
     public List<Company> getAll() {
@@ -43,6 +48,31 @@ public class CompanyServiceImpl implements CompanyService, CompanyRepository {
     }
 
     @Override
+    public ResponseBody insert(Company company){
+        if (companyService.exists(company.getId())) {
+            return (ResponseBody) new ResponseEntity<Company>(HttpStatus.CONFLICT);
+        } else {
+            Company inserted = companyService.insertCompany(company);
+            return (ResponseBody) new ResponseEntity<Company>(inserted, HttpStatus.OK);
+        }
+    }
+
+    @PostMapping
+    public Company insertCompany(Company company) {
+        return this.companyRepository.save(company);
+    }
+
+    @Override
+    public Optional<Company> findById(Integer companyId) {
+        Optional <Company> ret = this.companyRepository.findById(companyId);
+        if (ret.isPresent()) {
+            return ret;
+        } else {
+            return null;
+        }
+    }
+
+    @Override
     public List<Company> findAll(Sort sort) {
         return null;
     }
@@ -59,6 +89,7 @@ public class CompanyServiceImpl implements CompanyService, CompanyRepository {
 
     @Override
     public List<Company> findByName(String name) {
+
         return this.companyRepository.findByName(name);
     }
 
@@ -98,8 +129,32 @@ public class CompanyServiceImpl implements CompanyService, CompanyRepository {
     }
 
     @Override
-    public Optional<Company> findById(Integer integer) {
-        return Optional.empty();
+    public void deleteCompany(Integer companyId) {
+        this.companyRepository.deleteById(companyId);
+    }
+
+    @Override
+    public Company updateCompany(Company company, Integer companyId) {
+        if (companyRepository.existsById(companyId)) {
+            return this.companyRepository.save(company);
+        } else {
+            return null;
+        }
+    }
+
+    @Override
+    public ResponseBody update(Company company, Integer companyId){
+        if (companyService.exists(companyId)) {
+            Company updated = this.companyRepository.save(company);
+            return (ResponseBody) new ResponseEntity<Company>(updated, HttpStatus.OK);
+        } else {
+            return (ResponseBody) new ResponseEntity<Company>(HttpStatus.NOT_FOUND);
+        }
+    }
+
+    @Override
+    public boolean exists(int id) {
+        return false;
     }
 
     @Override

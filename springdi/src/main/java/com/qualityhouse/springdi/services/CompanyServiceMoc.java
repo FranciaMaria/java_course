@@ -1,14 +1,15 @@
 package com.qualityhouse.springdi.services;
 
 import com.qualityhouse.springdi.domain.Company;
-import org.springframework.context.annotation.Primary;
 import org.springframework.context.annotation.Profile;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 // @Primary
@@ -40,5 +41,40 @@ public class CompanyServiceMoc implements CompanyService {
     @Override
     public List<Company> getByName(String name) {
         return null;
+    }
+
+    @Override
+    public ResponseBody insert(Company company) {
+        return null;
+    }
+
+    @Override
+    public Optional<Company> findById(Integer companyId) {
+        return null;
+    }
+
+    @Override
+    public Company insertCompany(Company company) {
+        return null;
+    }
+
+    @Override
+    public void deleteCompany(Integer companyId) {
+
+    }
+
+    @Override
+    public Company updateCompany(Company company, Integer companyId) {
+        return null;
+    }
+
+    @Override
+    public ResponseBody update(Company company, Integer companyId) {
+        return null;
+    }
+
+    @Override
+    public boolean exists(int id) {
+        return false;
     }
 }
