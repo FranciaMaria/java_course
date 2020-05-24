@@ -60,4 +60,9 @@ public class Employee {
         this.address = address;
     }
 
+    @Transient
+    public String getFullName() {
+        return this.getFirstName() + " " + this.getLastName();
+    }
+
 }

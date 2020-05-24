@@ -1,7 +1,5 @@
 package com.qualityhouse.springdi.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import javax.persistence.*;
 import java.util.List;
 
@@ -17,8 +15,6 @@ public class Company {
     @Column(nullable = false)
     private String name;
 
-    //@OneToMany(mappedBy="company", fetch=FetchType.EAGER)
-    //@JsonIgnore
     @OneToMany(cascade = ALL, mappedBy="company", fetch=FetchType.LAZY)
     private List<Employee> employees;
 
@@ -43,6 +39,14 @@ public class Company {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public List<Employee> getEmployees() {
+        return employees;
+    }
+
+    public void setEmployees(List<Employee> employees) {
+        this.employees = employees;
     }
 
 }
