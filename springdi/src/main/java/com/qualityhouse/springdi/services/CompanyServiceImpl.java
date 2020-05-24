@@ -1,6 +1,7 @@
 package com.qualityhouse.springdi.services;
 
 import com.qualityhouse.springdi.domain.Company;
+import com.qualityhouse.springdi.domain.Employee;
 import com.qualityhouse.springdi.repositories.CompanyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;

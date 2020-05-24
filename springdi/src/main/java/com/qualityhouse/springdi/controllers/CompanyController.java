@@ -13,12 +13,11 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/companies")
+@RequestMapping("/mfrancia_company")
 public class CompanyController {
 
     @Autowired
     private CompanyService companyService;
-    private Company ResponseEntity;
 
     public CompanyController(CompanyService companyService) {
         this.companyService = companyService;

@@ -3,9 +3,6 @@ package com.qualityhouse.springdi.services;
 import com.qualityhouse.springdi.domain.Company;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 import java.util.Optional;
@@ -28,4 +25,5 @@ public interface CompanyService {
     Company updateCompany(Company company, Integer companyId);
 
     boolean exists(int id);
+
 }

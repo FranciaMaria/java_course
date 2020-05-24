@@ -12,4 +12,5 @@ public interface CompanyRepository extends JpaRepository<Company, Integer> {
 
     @Override
     Optional<Company> findById(Integer integer);
+
 }

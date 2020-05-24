@@ -1,9 +1,14 @@
 package com.qualityhouse.springdi.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
+import java.util.List;
+
+import static javax.persistence.CascadeType.ALL;
 
 @Entity
-@Table(name="company")
+@Table(name="mfrancia_company")
 public class Company {
 
     @Id
@@ -11,6 +16,11 @@ public class Company {
     private int id;
     @Column(nullable = false)
     private String name;
+
+    //@OneToMany(mappedBy="company", fetch=FetchType.EAGER)
+    //@JsonIgnore
+    @OneToMany(cascade = ALL, mappedBy="company", fetch=FetchType.LAZY)
+    private List<Employee> employees;
 
     public Company(){}
 
@@ -36,3 +46,4 @@ public class Company {
     }
 
 }
+

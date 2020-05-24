@@ -1,6 +1,7 @@
 package com.qualityhouse.springdi.services;
 
 import com.qualityhouse.springdi.domain.Company;
+import com.qualityhouse.springdi.domain.Employee;
 import org.springframework.context.annotation.Profile;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
