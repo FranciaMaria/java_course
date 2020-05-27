@@ -1,5 +1,6 @@
 package com.qualityhouse.springdi.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
@@ -19,6 +20,7 @@ public class Company {
     private String name;
 
     @OneToMany(cascade = ALL, mappedBy="company", fetch=FetchType.LAZY)
+    @JsonIgnore
     private List<Employee> employees;
 
     public Company(){}

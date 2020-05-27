@@ -1,12 +1,9 @@
 package com.qualityhouse.springdi;
 
 import com.qualityhouse.springdi.beans.Planet;
-import com.qualityhouse.springdi.config.BeanConfig;
 import org.springframework.context.ApplicationContext;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.ConfigurableApplicationContext;
 
 @SpringBootApplication
 public class SpringDiApplication {
