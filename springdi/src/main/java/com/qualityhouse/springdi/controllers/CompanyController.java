@@ -2,6 +2,7 @@ package com.qualityhouse.springdi.controllers;
 
 import com.qualityhouse.springdi.domain.Company;
 import com.qualityhouse.springdi.services.CompanyService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -9,9 +10,12 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.http.ResponseEntity;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 import java.util.List;
 import java.util.Optional;
 
+@Slf4j
 @RestController
 @RequestMapping("/mfrancia_company")
 public class CompanyController {
@@ -71,4 +75,10 @@ public class CompanyController {
             return new ResponseEntity<Company>(HttpStatus.NOT_FOUND);
         }
     }
+
+    @PostConstruct
+    public void postConstruct() {
+        log.info("The CompanyController instance is created.");
+    }
+
 }
