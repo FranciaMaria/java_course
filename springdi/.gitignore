@@ -31,4 +31,5 @@ build/
 .vscode/
 
 ### Don't push resources folder
-src/main/resources
+# src/main/resources
+springdi/src/main/resources/application.properties

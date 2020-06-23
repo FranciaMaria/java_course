@@ -1,5 +1,6 @@
 package com.qualityhouse.springdi.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 import javax.persistence.*;
 
@@ -7,6 +8,8 @@ import javax.persistence.*;
 @Entity
 @Table(name="mfrancia_employee")
 public class Employee {
+
+    // public Employee() {}
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
@@ -20,11 +23,10 @@ public class Employee {
 
     private String address;
 
+    @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="company_id", nullable=false)
     private Company company;
-
-    public Employee() {}
 
     @Transient
     public String getFullName() {
